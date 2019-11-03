@@ -8,11 +8,12 @@ import { GitHubService } from '../../services/github-service';
 })
 export class AppHome {
 
-  @State() owner: string = 'krzysio94598';
-  @State() repo: string = 'awscli-node-docker';
+  @State() owner: string = 'IdentityModel';
+  @State() repo: string = 'oidc-client-js';
   @State() eventType: string;
 
   @State() data: any;
+  _fullData: any;
 
   gitHubService = new GitHubService();
 
@@ -21,7 +22,7 @@ export class AppHome {
     console.log(this.owner, this.repo);
     // send data to our backend
 
-    this.data = await this.gitHubService.getEvents(this.owner, this.repo);
+    this.data = this._fullData = await this.gitHubService.getEvents(this.owner, this.repo);
 
     console.log('data', this.data);
   }
@@ -35,7 +36,13 @@ export class AppHome {
   }
 
   handleTypeSelect(event) {
+    this.eventType = event.target.value;
 
+    if (this.eventType === '') {
+      this.data = this._fullData;
+    } else {
+      this.data = this._fullData.filter((event) => event.type === this.eventType);
+    }
   }
 
   renderData() {
