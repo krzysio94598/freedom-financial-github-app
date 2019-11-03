@@ -46,23 +46,24 @@ export class AppHome {
         <label>
           Filter by Type:
           <select onInput={(event) => this.handleTypeSelect(event)}>
+            <option value="" selected={this.eventType === ''}>[Select Type]</option>
             <option value="PushEvent" selected={this.eventType === 'PushEvent'}>PushEvent</option>
-            {/* <option value="saab" selected={this.eventType === 'saab'}>Saab</option>
-            <option value="mercedes" selected={this.eventType === 'mercedes'}>Mercedes</option>
-            <option value="audi" selected={this.eventType === 'audi'}>Audi</option> */}
+            <option value="WatchEvent" selected={this.eventType === 'WatchEvent'}>WatchEvent</option>
+            <option value="IssueCommentEvent" selected={this.eventType === 'v'}>IssueCommentEvent</option>
+            <option value="IssuesEvent" selected={this.eventType === 'IssuesEvent'}>IssuesEvent</option>
           </select>
         </label>
 
 
         <table>
-          <th>
+          <thead>
             <tr>
-              <td>id</td>
-              <td>type</td>
-              <td>actor</td>
-              <td>timestamp</td>
+              <th>id</th>
+              <th>type</th>
+              <th>actor</th>
+              <th>timestamp</th>
             </tr>
-          </th>
+          </thead>
           <tbody>
             {this.data.map((row) =>
               <tr>
@@ -97,12 +98,6 @@ export class AppHome {
           </label>
           <button type="submit">Submit</button>
         </form>
-
-        {/* <stencil-route-link url='/profile/stencil'>
-          <button>
-            Profile page
-          </button>
-        </stencil-route-link> */}
 
         {this.data ? this.renderData() : null}
 
