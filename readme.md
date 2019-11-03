@@ -1,4 +1,4 @@
-# Stencil App Starter
+# Stencil App - Developer’s technical project
 
 Stencil is a compiler for building fast web apps using Web Components.
 
@@ -33,3 +33,7 @@ To run the unit tests and watch for file changes during development, run:
 ```
 npm run test.watch
 ```
+
+
+### Additional resources
+https://developer.github.com/v3/activity/events/types/
