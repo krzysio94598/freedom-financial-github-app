@@ -24,8 +24,18 @@ button:hover {
   transform: translateY(1px);
 }
 
+input {
+  line-height: 1.5rem;
+  padding-left: 2px;
+}
+
 label {
   display: block;
+  padding: 4px;
+}
+
+label input, label select {
+  margin-left: 8px;
 }
 
 table {
@@ -42,6 +52,9 @@ th, td {
   padding: 15px;
 }
 
+td {
+  font-size: smaller;
+}
 
 table tr:nth-child(even) {
   background-color: #eee;
